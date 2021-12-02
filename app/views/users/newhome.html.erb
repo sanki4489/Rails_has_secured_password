@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="flash-alert">
+        <% if flash.any? %>
+            <%= flash[:alert] %>
+        <% end %>   
+    </div>
+    <h1>Welcome to the home page</h1>
+    <% if logged_in? %>
+        <%= link_to current_user.name, user_path(current_user) %>
+        <%= link_to "Log Out", logout_path, method: :delete %> 
+    <% else %>
+        <%= link_to "Log In", login_path %>
+        <%= link_to "Sign Up", signup_path %>
+    <% end %>
+</div>  
